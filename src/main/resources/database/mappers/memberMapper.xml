@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.gb.sb4.member.MemberMapper">
+	<insert id="setInsert" parameterType="MemberVO">
+		insert into Member(id, pw, name, age, email)
+		values(#{id}, #{pw}, #{name}, #{age}, #{email})
+	</insert>
+	
+	<select id="getMemberLogin" parameterType="MemberVO" resultType="MemberVO">
+		select * from Member where id = #{id} and pw = #{pw}
+	</select>
+	
+	<insert id="setInsertFile" parameterType="MemberFileVO">
+		insert into MemberFile(id, fileName, oriName)
+		values(#{id}, #{fileName}, #{oriName})
+	</insert>
+	 
+</mapper>
