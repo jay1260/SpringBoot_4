@@ -57,7 +57,7 @@
 		$("#numFrm").attr("action", board+t);
 
 		// method를 post방식으로 사용하겠다.
-		if(t=='Update'){
+		if(t=='Delete'){
 			$("#numFrm").attr("method","post");
 		}
 		

@@ -8,6 +8,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import com.gb.sb4.interceptor.CustomInterceptor;
 import com.gb.sb4.interceptor.NoticeAdminInterceptor;
 import com.gb.sb4.interceptor.NoticeMemberInterceptor;
+import com.gb.sb4.interceptor.QnaMemberInterceptor;
+import com.gb.sb4.interceptor.QnaWriterInterceptor;
 
 @Configuration
 public class InterceptorConfig implements WebMvcConfigurer{
@@ -20,6 +22,12 @@ public class InterceptorConfig implements WebMvcConfigurer{
 	
 	@Autowired
 	private NoticeMemberInterceptor noticeMemberInterceptor;
+	
+	@Autowired
+	private QnaMemberInterceptor qnaMemberInterceptor;
+	
+	@Autowired
+	private QnaWriterInterceptor qnaWriterInterceptor;
 	
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
@@ -42,6 +50,15 @@ public class InterceptorConfig implements WebMvcConfigurer{
 		registry.addInterceptor(noticeMemberInterceptor)
 		.addPathPatterns("/notice/**")
 		.excludePathPatterns("/notice/noticeList");
+		
+		registry.addInterceptor(qnaMemberInterceptor)
+		.addPathPatterns("/qna/**")
+		.excludePathPatterns("/qna/qnaList");
+		
+		registry.addInterceptor(qnaWriterInterceptor)
+		.addPathPatterns("/qna/qnaUpdate")
+		.addPathPatterns("/qna/qnaDelete")
+		.addPathPatterns("/qna/qnaWrite");
 		
 		WebMvcConfigurer.super.addInterceptors(registry);
 	}

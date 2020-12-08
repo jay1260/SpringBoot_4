@@ -39,7 +39,7 @@
 	</select>
 	
 	<update id="setUpdate" parameterType="QnaVO">
-		update QnA set title = #{title}, contents = #{contents}
+		update QnA set title = #{title}, contents = #{contents} where num = #{num}
 	</update>
 	
 	<delete id="setDelete" parameterType="QnaVO">

@@ -45,7 +45,7 @@ public class QnaController {
 		int result = qnaService.setUpdate(boardVO);
 		if(result>0) {
 			mv.addObject("msg", "글이 수정되었습니다.");
-			mv.addObject("path", "./qnList");
+			mv.addObject("path", "./qnaList");
 		}
 		mv.setViewName("common/result");
 		
