@@ -6,12 +6,16 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import com.gb.sb4.interceptor.CustomInterceptor;
+import com.gb.sb4.interceptor.NoticeAdminInterceptor;
 
 @Configuration
 public class InterceptorConfig implements WebMvcConfigurer{
 	
 	@Autowired
 	private CustomInterceptor customInterceptor;
+	
+	@Autowired
+	private NoticeAdminInterceptor noticeAdminInterceptor;
 	
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
@@ -25,7 +29,14 @@ public class InterceptorConfig implements WebMvcConfigurer{
 		// Interceptor에서 제외 할 URL 작성
 		.excludePathPatterns("/notice/noticeWrite");
 		
+		registry.addInterceptor(noticeAdminInterceptor)
+		
+		.addPathPatterns("/notice/noticeWrite")
+		.addPathPatterns("/notice/noticeUpdate")
+		.addPathPatterns("/notice/noticeDelete");
+		
 		WebMvcConfigurer.super.addInterceptors(registry);
 	}
+	
 
 }
