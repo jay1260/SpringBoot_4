@@ -14,6 +14,9 @@
 <c:import url="../template/header.jsp"></c:import>
 
 	<div class="container">
+		<form action="" id="numFrm">
+			<input type="hidden" value="${select.num}" name="num">
+		</form>
 		<h3>Select 상세내용, 첨부파일 출력</h3>
 		<div class="form-group">
 			<label for="title">Title:</label>
@@ -36,11 +39,32 @@
 				<p> <img alt="" src="../upload/notice/${file.fileName}">
 			</c:forEach>
 		</div>
+		
+		<button class="btn btn-primary go" id="updateBtn" title="Update">UPDATE</button>
+		<button class="btn btn-danger go" id="deleteBtn" title="Delete">DELETE</button>
 	</div>
 </body>
 <script type="text/javascript">
 	$("#contents").summernote({
 		height:300,
 	});
+
+	$(".go").click(function(){
+		// Controller에서 설정한 값 확인바람
+		var board = '${board}';
+		var t = $(this).attr("title");
+
+		$("#numFrm").attr("action", board+t);
+
+		// method를 post방식으로 사용하겠다.
+		if(t=='Update'){
+			$("#numFrm").attr("method","post");
+		}
+		
+
+		$("#numFrm").submit();
+		
+	});
+	
 </script>
 </html>

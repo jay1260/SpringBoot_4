@@ -48,6 +48,31 @@ public class NoticeController {
 		return mv;
 	}
 	
+	@PostMapping("noticeUpdate")
+	public ModelAndView setUpdate(BoardVO boardVO) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		int result = noticeService.setUpdate(boardVO);
+		if(result>0) {
+			mv.addObject("msg", "글이 수정되었습니다.");
+			mv.addObject("path", "./noticeList");
+		}
+		mv.setViewName("common/result");
+		
+		return mv;
+	}
+	
+	@GetMapping("noticeUpdate")
+	public ModelAndView setUpdate(BoardVO boardVO, long num) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		boardVO = noticeService.getOne(boardVO);
+		System.out.println(num);
+		
+		mv.addObject("update", boardVO);
+		mv.setViewName("board/boardUpdate");
+		
+		return mv;
+	}
+	
 	@GetMapping("noticeSelect")
 	public ModelAndView getOne(BoardVO boardVO) throws Exception{
 		ModelAndView mv = new ModelAndView();
