@@ -13,7 +13,7 @@
 
 <div class="container">
 	
-	<form action="./noticeUpdate?num=${update.num}" method="post">
+	<form action="./${board}Update?num=${update.num}" method="post">
 		<div class="form-group">
 			<label for="title">Title:</label>
 			<input type="text" class="form-control" id="title" value="${update.title}" name="title">

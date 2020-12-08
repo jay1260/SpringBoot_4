@@ -48,6 +48,19 @@ public class NoticeController {
 		return mv;
 	}
 	
+	@GetMapping("noticeDelete")
+	public ModelAndView setDelete(BoardVO boardVO) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		int result = noticeService.setDelete(boardVO);
+		if(result>0) {
+			mv.addObject("msg", "삭제되었습니다.");
+			mv.addObject("path", "./noticeList");
+		}
+		mv.setViewName("common/result");
+		
+		return mv;
+	}
+	
 	@PostMapping("noticeUpdate")
 	public ModelAndView setUpdate(BoardVO boardVO) throws Exception{
 		ModelAndView mv = new ModelAndView();

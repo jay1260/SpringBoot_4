@@ -10,6 +10,7 @@
 		
 		<typeAlias type="com.gb.sb4.board.BoardVO" alias="BoardVO"/>
 		<typeAlias type="com.gb.sb4.board.notice.NoticeVO" alias="NoticeVO"/>
+		<typeAlias type="com.gb.sb4.board.qna.QnaVO" alias="QnaVO"/>
 		
 		<typeAlias type="com.gb.sb4.board.file.FileVO" alias="FileVO"/>
 		

@@ -15,7 +15,7 @@
 <c:import url="../template/header.jsp"></c:import>
 <div class="container">
 	<h3>Notice Write Page</h3>
-	<form action="./noticeWrite" method="post" enctype="multipart/form-data">
+	<form action="./${board}Write" method="post" enctype="multipart/form-data">
 	
 	<div class="form-group">
 		<label for="title">Title:</label>
