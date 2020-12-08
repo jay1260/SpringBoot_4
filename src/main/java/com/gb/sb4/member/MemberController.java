@@ -16,6 +16,10 @@ public class MemberController {
 	@Autowired
 	private MemberService memberService;
 	
+	// MyPage
+	@GetMapping("memberPage")
+	public void getMemberPage() throws Exception{}
+	
 	// 로그아웃 하기
 	@GetMapping("memberLogOut")
 	public String getMemberLogOut(HttpSession session) throws Exception{

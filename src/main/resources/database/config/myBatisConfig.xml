@@ -6,6 +6,7 @@
 <configuration>
 	<typeAliases>
 		<typeAlias type="java.lang.Long" alias="Long"/>
+		<typeAlias type="java.util.List" alias="List"/>
 		
 		<typeAlias type="com.gb.sb4.board.BoardVO" alias="BoardVO"/>
 		<typeAlias type="com.gb.sb4.board.notice.NoticeVO" alias="NoticeVO"/>
@@ -16,5 +17,6 @@
 		
 		<typeAlias type="com.gb.sb4.member.MemberVO" alias="MemberVO"/>
 		<typeAlias type="com.gb.sb4.member.MemberFileVO" alias="MemberFileVO"/>
+		<typeAlias type="com.gb.sb4.member.MemberRoleVO" alias="MemberRoleVO"/>
 	</typeAliases>
 </configuration>
