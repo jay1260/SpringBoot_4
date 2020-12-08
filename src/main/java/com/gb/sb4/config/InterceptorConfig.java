@@ -7,6 +7,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import com.gb.sb4.interceptor.CustomInterceptor;
 import com.gb.sb4.interceptor.NoticeAdminInterceptor;
+import com.gb.sb4.interceptor.NoticeMemberInterceptor;
 
 @Configuration
 public class InterceptorConfig implements WebMvcConfigurer{
@@ -16,6 +17,9 @@ public class InterceptorConfig implements WebMvcConfigurer{
 	
 	@Autowired
 	private NoticeAdminInterceptor noticeAdminInterceptor;
+	
+	@Autowired
+	private NoticeMemberInterceptor noticeMemberInterceptor;
 	
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
@@ -34,6 +38,10 @@ public class InterceptorConfig implements WebMvcConfigurer{
 		.addPathPatterns("/notice/noticeWrite")
 		.addPathPatterns("/notice/noticeUpdate")
 		.addPathPatterns("/notice/noticeDelete");
+		
+		registry.addInterceptor(noticeMemberInterceptor)
+		.addPathPatterns("/notice/**")
+		.excludePathPatterns("/notice/noticeList");
 		
 		WebMvcConfigurer.super.addInterceptors(registry);
 	}
