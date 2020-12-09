@@ -16,13 +16,24 @@
 <c:import url="./template/header.jsp"></c:import>
 
 <div class="container">
+	
+	<c:if test="${not empty member}">
+		<h3> <spring:message code="member.login.message" arguments="${member.id}"></spring:message> </h3>
+		<h3> <spring:message code="member.login.message2" arguments="${member.id}, ${member.name}" argumentSeparator=","></spring:message> </h3>
+	</c:if>
+	
 	<h3>Index Page</h3>
 	<p>The .navbar-right class is used to right-align navigation bar buttons.</p>
-
+	
+	<spring:message code="name" var="n"></spring:message>
 	<h1>Message : <spring:message code="hello"></spring:message> </h1>
+	<h1>Name : ${n} </h1>
+	<h1>Age : <spring:message code="user.age"></spring:message> </h1>
+	<h1>Default : <spring:message code="use" text="Default Message"></spring:message> </h1>
 
 	<!-- src/main/resources/static/images/~~ static의 경로는 제외 -->
 	<img alt="" src="./images/flower_2.jpg">
+	<h3>var : ${n}</h3>
 
 </div>
 

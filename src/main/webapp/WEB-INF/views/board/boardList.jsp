@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,6 +29,10 @@
 	<h3>Board List Page</h3>
 	<p>The .navbar-right class is used to right-align navigation bar buttons.</p>
 
+	<c:if test="${not empty member}">
+		<h1> <spring:message code="member.login.message" arguments="${member.id}"></spring:message> </h1>
+	</c:if>
+	
 	<img alt="" src="../images/flower_2.jpg">
 	<!-- Seach -->
 	<form action="./${board}List" id=searchFrm>
