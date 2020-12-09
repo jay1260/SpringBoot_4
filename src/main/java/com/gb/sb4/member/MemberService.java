@@ -12,4 +12,8 @@ public class MemberService {
 	public MemberVO getMemberLogin(MemberVO memberVO) throws Exception{
 		return memberMapper.getMemberLogin(memberVO);
 	}
+	
+	public int setInsert(MemberVO memberVO) throws Exception{
+		return memberMapper.setInsert(memberVO);
+	}
 }

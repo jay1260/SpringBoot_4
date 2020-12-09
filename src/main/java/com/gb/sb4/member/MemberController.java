@@ -1,9 +1,11 @@
 package com.gb.sb4.member;
 
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +17,21 @@ public class MemberController {
 
 	@Autowired
 	private MemberService memberService;
+	
+	@PostMapping("memberJoin")
+	public String setInsert(@Valid MemberVO memberVO, BindingResult bindingResult) throws Exception{
+		if(bindingResult.hasErrors()) {
+			return "member/memberJoin";
+		}
+		
+		int result = memberService.setInsert(memberVO);
+		
+		return "redirect:../";
+	}
+	
+	// Join
+	@GetMapping("memberJoin")
+	public void setInsert(MemberVO memberVO) throws Exception{}
 	
 	// MyPage
 	@GetMapping("memberPage")
