@@ -11,6 +11,11 @@
 <!-- include summernote css/js -->
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+<style type="text/css">
+	.error{
+		color: red;
+	}
+</style>
 </head>
 <body>
 <c:import url="../template/header.jsp"></c:import>
@@ -22,13 +27,13 @@
 			<label for="title">Title:</label>
 			<!-- path : parameter Name -->
 			<form:input path="title" class="form-control"/>
-			<form:errors path="title"></form:errors>
+			<form:errors path="title" cssClass="error"></form:errors>
 		</div>
 		
 	<div class="form-group">
 		<label for="writer">Writer:</label>
-		<form:input path="writer"/>
-		<form:errors path="writer"></form:errors>
+		<form:input path="writer" class="form-control"/>
+		<form:errors path="writer" cssClass="error"></form:errors>
 	</div>
 	
 	<div class="form-group">
