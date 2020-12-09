@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,32 +16,36 @@
 <c:import url="../template/header.jsp"></c:import>
 <div class="container">
 	<h3>Notice Write Page</h3>
-	<form action="./${board}Write" method="post" enctype="multipart/form-data">
 	
-	<div class="form-group">
-		<label for="title">Title:</label>
-		<input type="text" class="form-control" id="title" placeholder="Enter title" name="title">
-	</div>
+	<form:form modelAttribute="boardVO" enctype="multipart/form-data">
+		<div class="form-group">
+			<label for="title">Title:</label>
+			<!-- path : parameter Name -->
+			<form:input path="title" class="form-control"/>
+			<form:errors path="title"></form:errors>
+		</div>
+		
 	<div class="form-group">
 		<label for="writer">Writer:</label>
-		<input type="text" class="form-control" id="writer" value="${member.id}" readonly="readonly" name="writer">
+		<form:input path="writer"/>
 	</div>
 	
 	<div class="form-group">
 		<label for="contents">Contents:</label>
-		<textarea class="form-control" rows="10" id="contents" name="contents"></textarea>
+		<form:textarea path="contents" id="contents"/>
 	</div>
 	
 	<div class="form-group">
 		<label for="files">File:</label>
 		<input type="file" class="form-control" name="files">
 		<input type="file" class="form-control" name="files">
-		<input type="button" class="btn btn-danger" value="파일추가">	
 	</div>
 	
 	<button type="submit" class="btn btn-default">Write</button>
+		
+	</form:form>
 	
-	</form>
+	
 </div>	
 </body>
 <script type="text/javascript">

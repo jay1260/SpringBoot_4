@@ -7,8 +7,6 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <c:import url="../template/bootStrap.jsp"></c:import>
-<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 </head>
 <body>
 <c:import url="../template/header.jsp"></c:import>
@@ -29,7 +27,7 @@
 		
 		<div class="form-group">
 			<label for="contents">Contents:</label>
-			<textarea class="form-control" rows="10" id="contents" name="contents">${select.contents}</textarea>
+			<textarea class="form-control" rows="10" id="contents" name="contents" readonly="readonly">${select.contents}</textarea>
 		</div>
 		
 		<div class="form-group">
@@ -45,9 +43,6 @@
 	</div>
 </body>
 <script type="text/javascript">
-	$("#contents").summernote({
-		height:300,
-	});
 
 	$(".go").click(function(){
 		// Controller에서 설정한 값 확인바람
