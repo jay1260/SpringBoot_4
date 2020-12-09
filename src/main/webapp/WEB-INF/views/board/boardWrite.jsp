@@ -28,6 +28,7 @@
 	<div class="form-group">
 		<label for="writer">Writer:</label>
 		<form:input path="writer"/>
+		<form:errors path="writer"></form:errors>
 	</div>
 	
 	<div class="form-group">

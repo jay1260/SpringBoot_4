@@ -13,6 +13,7 @@ public class BoardVO {
 	
 	@NotEmpty
 	private String title;
+	@NotEmpty
 	private String writer;
 	private String contents;
 	private Date regDate;
