@@ -19,14 +19,20 @@ public class MemberController {
 	private MemberService memberService;
 	
 	@PostMapping("memberJoin")
-	public String setInsert(@Valid MemberVO memberVO, BindingResult bindingResult) throws Exception{
+	public ModelAndView setInsert(@Valid MemberVO memberVO, BindingResult bindingResult) throws Exception{
+		ModelAndView mv = new ModelAndView();
 		if(bindingResult.hasErrors()) {
-			return "member/memberJoin";
+			mv.setViewName("member/memberJoin");
+		}		
+		// 에러가 아닐 경우
+		else {
+			int result = memberService.setInsert(memberVO);
+			mv.addObject("msg", "가입 완료");
+			mv.addObject("path", "../");
+			mv.setViewName("common/result");
 		}
 		
-		int result = memberService.setInsert(memberVO);
-		
-		return "redirect:../";
+		return mv;
 	}
 	
 	// Join

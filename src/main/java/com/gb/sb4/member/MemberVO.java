@@ -17,13 +17,14 @@ public class MemberVO {
 	@NotEmpty
 	private String id;
 	
-	@Length(min = 6, max = 12)
+	@NotEmpty
+	@Length(min=6, max=12)
 	private String pw;
 	
 	@Size(min=2)
 	private String name;
 	
-	@Range(min = 0, max = 200)
+	@Range(min = 1, max = 200)
 	private long age;
 	
 	@Email
