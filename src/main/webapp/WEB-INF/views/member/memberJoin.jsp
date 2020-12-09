@@ -9,6 +9,7 @@
 <title>Insert title here</title>
 <c:import url="../template/bootStrap.jsp"></c:import>
 <style type="text/css">
+
 	.form-css{
 		color:red;
 		font-weight: bold;

@@ -17,11 +17,10 @@ public class MemberVO {
 	@NotEmpty
 	private String id;
 	
-	@NotEmpty
-	@Length(min=6, max=12)
+	@Length(min=8, max=14)
 	private String pw;
 	
-	@Size(min=2)
+	@Size(min=3)
 	private String name;
 	
 	@Range(min = 1, max = 200)
