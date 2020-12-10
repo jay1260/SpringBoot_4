@@ -34,6 +34,8 @@
 	<!-- src/main/resources/static/images/~~ static의 경로는 제외 -->
 	<img alt="" src="./images/flower_2.jpg">
 	<h3>var : ${n}</h3>
+	
+	<a href="./rest/member/iu/1"></a>
 
 </div>
 

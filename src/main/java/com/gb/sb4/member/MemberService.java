@@ -30,9 +30,9 @@ public class MemberService {
 		
 		// id 중복 검사 검증
 		// idCheck 쿼리를 만들어서 검증만 진행한다.
-		memberVO = memberMapper.getMemberIdCheck(memberVO);
+		MemberVO mv = memberMapper.getMemberIdCheck(memberVO);
 		// 이미 있는 아이디일 경우 error
-		if(memberVO!=null) {
+		if(mv!=null) {
 			bindingResult.rejectValue("id", "memberVO.idCheck.notNull");
 			result = true;
 		}
