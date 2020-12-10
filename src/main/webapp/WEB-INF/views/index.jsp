@@ -35,7 +35,7 @@
 	<img alt="" src="./images/flower_2.jpg">
 	<h3>var : ${n}</h3>
 	
-	<a href="./rest/member/iu/1"></a>
+	<a href="./rest/member/iu/1">a</a>
 
 </div>
 
