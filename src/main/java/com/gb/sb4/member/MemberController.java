@@ -21,8 +21,9 @@ public class MemberController {
 	@PostMapping("memberJoin")
 	public ModelAndView setInsert(@Valid MemberVO memberVO, BindingResult bindingResult) throws Exception{
 		ModelAndView mv = new ModelAndView();
-		if(bindingResult.hasErrors()) {
+		if(memberService.getMemberError(memberVO, bindingResult)) {
 			mv.setViewName("member/memberJoin");
+			return mv;
 		}		
 		// 에러가 아닐 경우
 		else {

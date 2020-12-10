@@ -4,6 +4,11 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="com.gb.sb4.member.MemberMapper">
+	
+	<select id="getMemberIdCheck" resultType="MemberVO" parameterType="MemberVO">
+		select id from Member where id = #{id}
+	</select>
+	
 	<insert id="setInsert" parameterType="MemberVO">
 		insert into Member(id, pw, name, age, email)
 		values(#{id}, #{pw}, #{name}, #{age}, #{email})

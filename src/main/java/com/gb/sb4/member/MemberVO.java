@@ -17,8 +17,11 @@ public class MemberVO {
 	@NotEmpty
 	private String id;
 	
-	@Length(min=8, max=14)
+	@Length(min=6, max=14)
 	private String pw;
+	
+	// 비밀번호 재확인을 위한 변수 선언
+	private String pw2;
 	
 	@Size(min=3)
 	private String name;
