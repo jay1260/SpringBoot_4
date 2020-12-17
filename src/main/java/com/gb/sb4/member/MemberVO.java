@@ -32,5 +32,7 @@ public class MemberVO {
 	@Email
 	private String email;
 	
+	private MemberFileVO memberFileVO;
+	
 	private List<MemberRoleVO> roles;
 }
